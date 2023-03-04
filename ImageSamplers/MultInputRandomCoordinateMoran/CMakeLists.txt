@@ -1,0 +1,7 @@
+
+ADD_ELXCOMPONENT( MultiInputRandomCoordinateMoranSampler
+ elxMultiInputRandomCoordinateMoranSampler.h
+ elxMultiInputRandomCoordinateMoranSampler.hxx
+ elxMultiInputRandomCoordinateMoranSampler.cxx
+ itkMultiInputImageRandomCoordinateMoranSampler.h
+ itkMultiInputImageRandomCoordinateMoranSampler.hxx )
