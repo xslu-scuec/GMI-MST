@@ -1,0 +1,92 @@
+// ********** Image Types
+
+(FixedInternalImagePixelType "float")
+(FixedImageDimension 3)
+(MovingInternalImagePixelType "float")
+(MovingImageDimension 3)
+
+
+// ********** Components
+
+(Registration "MultiResolutionRegistrationWithFeatures")
+(FixedImagePyramid "FixedSmoothingImagePyramid" "FixedSmoothingImagePyramid" "FixedSmoothingImagePyramid" "FixedSmoothingImagePyramid" "FixedSmoothingImagePyramid" "FixedSmoothingImagePyramid" "FixedSmoothingImagePyramid" "FixedSmoothingImagePyramid" "FixedSmoothingImagePyramid" "FixedSmoothingImagePyramid" "FixedSmoothingImagePyramid" "FixedSmoothingImagePyramid" "FixedSmoothingImagePyramid" "FixedSmoothingImagePyramid" "FixedSmoothingImagePyramid" "FixedSmoothingImagePyramid" "FixedSmoothingImagePyramid")
+(MovingImagePyramid "MovingSmoothingImagePyramid" "MovingSmoothingImagePyramid" "MovingSmoothingImagePyramid" "MovingSmoothingImagePyramid" "MovingSmoothingImagePyramid" "MovingSmoothingImagePyramid" "MovingSmoothingImagePyramid" "MovingSmoothingImagePyramid" "MovingSmoothingImagePyramid" "MovingSmoothingImagePyramid" "MovingSmoothingImagePyramid" "MovingSmoothingImagePyramid" "MovingSmoothingImagePyramid" "MovingSmoothingImagePyramid" "MovingSmoothingImagePyramid" "MovingSmoothingImagePyramid" "MovingSmoothingImagePyramid")
+(Interpolator "BSplineInterpolator" "BSplineInterpolator" "BSplineInterpolator" "BSplineInterpolator" "BSplineInterpolator" "BSplineInterpolator" "BSplineInterpolator" "BSplineInterpolator" "BSplineInterpolator" "BSplineInterpolator" "BSplineInterpolator" "BSplineInterpolator" "BSplineInterpolator" "BSplineInterpolator" "BSplineInterpolator" "BSplineInterpolator" "BSplineInterpolator")
+(Metric "MSTGraphAlphaMutualInformation")
+(Optimizer "StandardGradientDescent")
+(ResampleInterpolator "FinalBSplineInterpolator")
+(Resampler "DefaultResampler")
+(Transform "BSplineTransform")
+
+
+// ********** Pyramid
+
+// Total number of resolutions
+(NumberOfResolutions 3)
+(ImagePyramidSchedule 4 4 2 2 2 1 1 1 1)
+(FixedImageBSplineInterpolatorOrder 1)
+
+
+// ********** Transform
+
+(FinalGridSpacingInPhysicalUnits 8.0 8.0 8.0)
+(GridSpacingSchedule 4.0 2.0 1.0)
+(HowToCombineTransforms "Compose")
+
+
+// ********** Optimizer
+
+// Maximum number of iterations in each resolution level:
+(MaximumNumberOfIterations 300 300 600)
+
+//SP: Param_a in each resolution level. a_k = a/(A+k+1)^alpha
+(SP_a 800.0)
+
+//SP: Param_alpha in each resolution level. a_k = a/(A+k+1)^alpha
+(SP_alpha 0.6)
+
+//SP: Param_A in each resolution level. a_k = a/(A+k+1)^alpha
+(SP_A 50.0)
+
+
+// ********** Metric
+
+(Alpha 0.99)
+(BucketSize 50)
+(SplittingRule "ANN_KD_STD")
+(KNearestNeighbours 20)
+(ErrorBound 10.0)
+
+
+// ********** Several
+
+(WriteTransformParametersEachIteration "false")
+(WriteTransformParametersEachResolution "false")
+(WriteResultImageAfterEachResolution "false")
+(WriteResultImage "false")
+(ShowExactMetricValue "false")
+(ErodeMask "true")
+
+
+// ********** ImageSampler
+
+//Number of spatial samples used to compute the mutual information in each resolution level:
+(ImageSampler "MultiInputRandomCoordinate")
+(NumberOfSpatialSamples 2000)
+(UseRandomSampleRegion "true")
+(SampleRegionSize 50.0 50.0 50.0 50.0 50.0 50.0 50.0 50.0 50.0)
+(NewSamplesEveryIteration "true")
+(CheckNumberOfSamples "false")
+
+
+// ********** Interpolator and Resampler
+
+//Order of B-Spline interpolation used in each resolution level:
+(BSplineInterpolationOrder 1)
+
+//Order of B-Spline interpolation used for applying the final deformation:
+(FinalBSplineInterpolationOrder 3)
+
+//Default pixel value for pixels that come from outside the picture:
+(DefaultPixelValue 0)
+
