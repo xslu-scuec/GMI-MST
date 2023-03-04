@@ -1,0 +1,15 @@
+ObjectType = Image
+NDims = 3
+DimSize = 192 192 16
+ElementType = MET_FLOAT
+ElementSpacing = 1.25 1.25 6.25
+ElementSize = 1.25 1.25 6.25
+HeaderSize = 0
+BinaryData = true
+BinaryDataByteOrderMSB = false
+CompressedData = false
+TransformMatrix = 1 0 0 0 1 0 0 0 1
+Offset = 28.75 91.25 -1.875
+CenterOfRotation = 0 0 0
+AnatomicalOrientation = RAI
+ElementDataFile = p001_fr01_m214.raw
