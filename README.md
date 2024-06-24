@@ -2,7 +2,8 @@
 
 This is a multi-channel image registration framework by using multifeature mutual information based on (weighted) minimal spanning tree. The two methods (called LaMI and LWaMI) can be faster using ITK multi-threads.
 
-The source code includes two folders: Metrics and ImageSamplers. The users can embed them into elastix platform by using cmake. To be convenient, an executable file based on Windows system can be found from folder 'Release'. 
+The source code includes two folders: Metrics and ImageSamplers. The users can embed them into elastix platform by using cmake. To be convenient, an executable file based on Windows system can be found from folder 'Release'.
+The code for deep feature learning can be found in folder 'DFT'.
 
 An example of intrasubject registration on cardiac MR is illustrated in folder 'examples'. The "patient001_frame01.nii.gz" is the fixed image. The "patient001_frame12.nii.gz" is the moving image. 
 The deep features of fixed and moving images can be found from folder 'examples/dlfs'. The spin features of fixed image can be found from folder 'examples/spin'. The Moran's I coefficient image can be found from folder 'examples/moran'. 
